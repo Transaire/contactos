@@ -2,85 +2,87 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Tarjeta Digital</title>
+
+  <!-- 📱 Hacer que se vea como App -->
+  <meta name="theme-color" content="#111827">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
   <style>
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
       font-family: 'Segoe UI', sans-serif;
       background: #fff;
+      height: 100%;
+      width: 100%;
+    }
+
+    body {
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      overflow: hidden;
+      min-height: 100dvh; /* ✅ Altura dinámica real en móviles */
+      background: #fff;
     }
 
     .card {
       width: 100%;
-      max-width: 100%;
-      height: 100%;
+      max-width: 420px;
       background: linear-gradient(to bottom, #fff 60%, #94A7FF 100%);
       overflow: hidden;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
       text-align: center;   
-      opacity: 0.9;
-      transform: translateY(50px);
-    }
-
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
+      border-radius: 12px;
     }
 
     .image-container {
-  position: relative;
-  z-index: 0;
-  width: 100%;
-  height: 230px;
-  overflow: hidden;
-}
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
 
-.image-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-}
+    .image-container img {
+      width: 100%;
+      max-height: 220px;
+      object-fit: cover;
+      display: block;
+    }
 
-.image-container svg {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 80px;
-  z-index: 0;   
-}
+    .image-container svg {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+    }
 
-.image-container svg path {
-    position: relative;
-    top:22px;
-  fill: #fff; /* color de la ola */
-}
-
+    .image-container svg path {
+      fill: #fff;
+    }
 
     .info {
-        position: relative;
-        top: -25px;
-        z-index: 1;
+      position: relative;
+      top: -20px;
+      z-index: 1;
+      padding: 0 1rem 1rem;
     }
 
     .info h1 {
       margin: 0;
-      font-size: 1.5rem;
+      font-size: clamp(1.3rem, 5vw, 1.7rem);
       color: #111827;
       background-color: #fff;
+      display: inline-block;
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
     }
 
     .info h2 {
-      margin: 0.2rem 0 1rem;
-      font-size: 1rem;
+      margin: 0.5rem 0 1rem;
+      font-size: clamp(0.9rem, 4vw, 1.1rem);
       color: #4b5563;
       font-weight: normal;
     }
@@ -89,6 +91,7 @@
       display: flex;
       justify-content: center;
       gap: 1rem;
+      flex-wrap: wrap;
       margin: 1rem 0;
     }
 
@@ -98,7 +101,12 @@
       padding: 0.6rem;
       border-radius: 50%;
       text-decoration: none;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
+      transition: transform 0.3s ease;
+    }
+
+    .icons a:hover {
+      transform: scale(1.2);
     }
 
     .contact-info {
@@ -106,9 +114,16 @@
       padding: 1rem;
       border-radius: 10px;
       margin: 1rem auto;
-      width: 85%;
+      width: 100%;
+      max-width: 350px;
       font-size: 0.9rem;
       color: #374151;
+      text-align: left;
+    }
+
+    .contact-info p {
+      margin: 0.3rem 0;
+      word-break: break-word;
     }
 
     .btn {
@@ -121,11 +136,22 @@
       font-weight: bold;
       text-decoration: none;
       transition: 0.3s;
+      font-size: 0.95rem;
     }
 
     .btn:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 20px rgba(132, 204, 22, 0.8);
+      box-shadow: 0 0 15px rgba(132, 204, 22, 0.6);
+    }
+
+    /* 📱 Ajustes responsivos */
+    @media (max-width: 480px) {
+      .card {
+        max-width: 95%;
+      }
+      .contact-info {
+        font-size: 0.85rem;
+      }
     }
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -141,86 +167,86 @@
 
     <div class="info">
       <h1>DUVAN MENDEZ</h1>
-      <h2 id="typing">💻 </h2>
+      <h2 id="typing">💻 Ingeniero De Sistemas</h2>
 
       <div class="icons"> 
-  <a href="https://wa.me/573045799953" target="_blank"><i class="fab fa-whatsapp"></i></a>
-  <a href="https://www.linkedin.com/in/tuusuario" target="_blank"><i class="fab fa-linkedin"></i></a>
-  <a href="https://www.instagram.com/tuusuario" target="_blank"><i class="fab fa-instagram"></i></a>
-</div>
+        <a href="https://wa.me/573045799953" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.linkedin.com/in/tuusuario" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/tuusuario" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
 
       <div class="contact-info">
-  <p><strong>Teléfono:</strong> +57 304 579 9953</p>
-  <p><strong>Correo:</strong> sistemas@transaire.net</p>
-  <p><strong>Página web:</strong> <a href="https://www.tusitio.com" target="_blank">www.transaire.net</a></p>
-  <p><strong>Dirección:</strong>Cra. 127 #22G 15, Bogotá</p>
-</div>
+        <p><strong>Teléfono:</strong> +57 304 579 9953</p>
+        <p><strong>Correo:</strong> sistemas@transaire.net</p>
+        <p><strong>Página web:</strong> <a href="https://www.transaire.net" target="_blank">www.transaire.net</a></p>
+        <p><strong>Dirección:</strong> Cra. 127 #22G 15, Bogotá</p>
+      </div>
       <a href="contacto.vcf" class="btn">➕ Add to Contact</a>
     </div>
   </div>
 
-  <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
 
-    const text = "Ingeniero De Sistemass";
-  const typingElement = document.getElementById("typing");
+        const text = "Ingeniero De Sistemass";
+    const typingElement = document.getElementById("typing");
 
-  typingElement.textContent = "💻 "; // solo el icono al inicio
+    typingElement.textContent = "💻 "; // solo el icono al inicio
 
-  let progress = 0;
-    // Entrada de la tarjeta
-    gsap.from(".card", {
-      duration: 1.5,
-      opacity: 0,
-      y: 100,
-      scale: 0.9,
-      ease: "elastic.out(1, 0.6)"
+    let progress = 0;
+        // Entrada de la tarjeta
+        gsap.from(".card", {
+        duration: 1.5,
+        opacity: 0,
+        y: 100,
+        scale: 0.9,
+        ease: "elastic.out(1, 0.6)"
+        });
+
+        // Animación de íconos con stagger
+
+        gsap.from(".icons a", {
+        opacity: 0,
+        y: 30,
+        scale: 0,
+        duration: 0.5,
+        stagger: 0.2,
+        delay: 1
+        });
+        gsap.to({}, {
+        duration: 0.03, // tiempo total de escritura
+        repeat: text.length - 1,
+        onRepeat: function () {
+        progress++;
+        typingElement.textContent = "💻 " + text.substring(0, progress);
+        }
     });
 
-    // Animación de íconos con stagger
+    // Cursor parpadeante
+    const cursor = document.createElement("span");
+    cursor.textContent = "|";
+    cursor.style.display = "inline-block";
+    cursor.style.marginLeft = "2px";
+    typingElement.appendChild(cursor);
 
-    gsap.from(".icons a", {
-      opacity: 0,
-      y: 30,
-      scale: 0,
-      duration: 0.5,
-      stagger: 0.2,
-      delay: 1
+    gsap.to(cursor, {
+        opacity: 0,
+        duration: 0.2,
+        repeat: -1,
+        yoyo: true
     });
-    gsap.to({}, {
-    duration: 0.03, // tiempo total de escritura
-    repeat: text.length - 1,
-    onRepeat: function () {
-      progress++;
-      typingElement.textContent = "💻 " + text.substring(0, progress);
-    }
-  });
 
-  // Cursor parpadeante
-  const cursor = document.createElement("span");
-  cursor.textContent = "|";
-  cursor.style.display = "inline-block";
-  cursor.style.marginLeft = "2px";
-  typingElement.appendChild(cursor);
-
-  gsap.to(cursor, {
-    opacity: 0,
-    duration: 0.2,
-    repeat: -1,
-    yoyo: true
-  });
-
-    
-    // Efecto hover en íconos
-    document.querySelectorAll(".icons a").forEach(icon => {
-      icon.addEventListener("mouseenter", () => {
-        gsap.to(icon, { scale: 1.3, duration: 0.3, ease: "back.out(2)" });
-      });
-      icon.addEventListener("mouseleave", () => {
-        gsap.to(icon, { scale: 1, duration: 0.3 });
-      });
-    });
-  </script>
-</body>
-</html>
+        
+        // Efecto hover en íconos
+        document.querySelectorAll(".icons a").forEach(icon => {
+        icon.addEventListener("mouseenter", () => {
+            gsap.to(icon, { scale: 1.3, duration: 0.3, ease: "back.out(2)" });
+        });
+        icon.addEventListener("mouseleave", () => {
+            gsap.to(icon, { scale: 1, duration: 0.3 });
+        });
+        });
+    </script>
+    </body>
+    </html>

@@ -2,35 +2,23 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tarjeta Digital</title>
-
-  <!-- 📱 Hacer que se vea como App -->
-  <meta name="theme-color" content="#111827">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
   <style>
-    html, body {
+    body {
       margin: 0;
-      padding: 0;
       font-family: 'Segoe UI', sans-serif;
       background: #fff;
-      height: 100%;
-      width: 100%;
-    }
-
-    body {
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 100dvh; /* ✅ Altura dinámica real en móviles */
-      background: #fff;
+      min-height: 100vh;
+      padding: 1rem;
     }
 
     .card {
       width: 100%;
-      max-width: 420px;
+      max-width: 400px;
       background: linear-gradient(to bottom, #fff 60%, #94A7FF 100%);
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(0,0,0,0.2);
@@ -72,7 +60,7 @@
 
     .info h1 {
       margin: 0;
-      font-size: clamp(1.3rem, 5vw, 1.7rem);
+      font-size: clamp(1.2rem, 5vw, 1.6rem);
       color: #111827;
       background-color: #fff;
       display: inline-block;
@@ -167,7 +155,7 @@
 
     <div class="info">
       <h1>DUVAN MENDEZ</h1>
-      <h2 id="typing">💻 Ingeniero De Sistemas</h2>
+      <h2 id="typing">💻 </h2>
 
       <div class="icons"> 
         <a href="https://wa.me/573045799953" target="_blank"><i class="fab fa-whatsapp"></i></a>
@@ -184,6 +172,7 @@
       <a href="contacto.vcf" class="btn">➕ Add to Contact</a>
     </div>
   </div>
+
 
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>

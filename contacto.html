@@ -3,16 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <title>Tarjeta Digital</title>
   <style>
     body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Poppins', sans-serif;
   background: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 95vh;
+  min-height: 94vh;
+  height: 94vh;
   padding: 1rem;
 }
 
@@ -20,7 +22,7 @@
   width: 100%;
   max-width: 400px;
   max-height: 100vh; /* Evita exceder la pantalla */
-  background: linear-gradient(to bottom, #fff 60%, #94A7FF 100%);
+  background: linear-gradient(to bottom, #fff 60%, rgba(51, 119, 255, 0.5) 100%);
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
   text-align: center;   
@@ -97,10 +99,9 @@
     }
 
     .icons a {
-      background: #111827;
+        display: flex;
+        height: auto;
       color: #fff;
-      padding: 0.6rem;
-      border-radius: 50%;
       text-decoration: none;
       font-size: 1.3rem;
       transition: transform 0.3s ease;
@@ -123,7 +124,8 @@
     }
 
     .contact-info p {
-      margin: 0.3rem 0;
+      margin: 0.5rem 0;
+      font-size: 0.9rem;
       word-break: break-word;
     }
 
@@ -132,8 +134,8 @@
       margin-top: 1rem;
       padding: 0.8rem 1.5rem;
       border-radius: 30px;
-      background: linear-gradient(90deg, #84cc16, #a3e635);
-      color: #111827;
+      background: linear-gradient(90deg, #0036A3, #0046D1);
+      color: #fff;
       font-weight: bold;
       text-decoration: none;
       transition: 0.3s;
@@ -168,14 +170,17 @@
     </div>
 
     <div class="info">
-      <h1>DUVAN MENDEZ</h1>
+      <h1>PEPITO PEREZ</h1>
       <h2 id="typing">💻 </h2>
 
-      <div class="icons"> 
-        <a href="https://wa.me/573045799953" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://www.linkedin.com/in/tuusuario" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://www.instagram.com/tuusuario" target="_blank"><i class="fab fa-instagram"></i></a>
-      </div>
+        <div class="icons"> 
+            <a href="https://wa.me/573045799953" target="_blank"> 
+                <img src="whatsapp.svg" alt="WhatsApp" width="33" height="33"> 
+            </a> 
+            <a href="https://www.linkedin.com/in/tuusuario" target="_blank"> 
+                <img src="instagram.svg" alt="LinkedIn" width="33" height="33"> 
+            </a> 
+        </div>
 
       <div class="contact-info">
         <p><strong>Teléfono:</strong> +57 304 579 9953</p>
@@ -211,16 +216,7 @@ const typingInterval = setInterval(() => {
         ease: "elastic.out(1, 0.6)"
         });
 
-        // Animación de íconos con stagger
-
-        gsap.from(".icons a", {
-        opacity: 0,
-        y: 30,
-        scale: 0,
-        duration: 0.5,
-        stagger: 0.2,
-        delay: 1
-        });
+       
         
 
     // Cursor parpadeante
@@ -250,5 +246,4 @@ const typingInterval = setInterval(() => {
     </script>
     </body>
     </html>
-
 
